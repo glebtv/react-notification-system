@@ -26,6 +26,8 @@ class NotificationGenerator extends React.Component {
     this._removeLastNotification = this._removeLastNotification.bind(this)
     this._onRemove = this._onRemove.bind(this)
     this._changedAllowHTML = this._changedAllowHTML.bind(this)
+    this._changedAction = this._changedAction.bind(this)
+    this._changedActionLabel = this._changedActionLabel.bind(this)
   }
 
   _notify(event) {
