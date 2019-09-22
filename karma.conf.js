@@ -1,6 +1,7 @@
 /* eslint-disable */
 
 var webpack = require('webpack');
+var path = require('path');
 
 var coverage;
 var reporters;
@@ -30,19 +31,23 @@ module.exports = function (config) {
     coverageReporter: coverage,
     webpack: {
       devtool: 'inline-source-map',
+      mode: "production",
       module: {
-        loaders: [
-          // TODO: fix sourcemaps
-          // see: https://github.com/deepsweet/isparta-loader/issues/1
+        rules: [
           {
             test: /\.js$|.jsx$/,
-            loader: 'babel?presets=airbnb',
+            loader: 'babel-loader?presets[]=airbnb',
             exclude: /node_modules/
           },
           {
             test: /\.js$|.jsx$/,
-            loader: 'isparta?{babel: {stage: 0}}',
-            exclude: /node_modules|test|utils/
+            use: {
+              loader: 'istanbul-instrumenter-loader',
+              options: {
+                esModules: true
+              }
+            },
+            include: path.resolve('src/'),
           }
         ]
       },
@@ -55,8 +60,8 @@ module.exports = function (config) {
         })
       ],
       resolve: {
-        extensions: ['', '.js', '.jsx'],
-        modulesDirectories: ['node_modules', 'src']
+        extensions: ['.js', '.jsx'],
+        modules: ['node_modules', 'src']
       }
     },
     webpackServer: {

@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 import TestUtils from 'react-dom/test-utils';
 import { expect } from 'chai';
 import NotificationSystem from 'NotificationSystem';
-import { positions, levels } from 'constants';
+import { positions, levels } from '../src/constants';
+
 import merge from 'object-assign';
 
 const defaultNotification = {

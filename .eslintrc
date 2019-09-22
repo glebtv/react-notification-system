@@ -10,12 +10,12 @@
     "react",
     "import"
   ],
+  "parser": "babel-eslint",
   "parserOptions": {
-    "ecmaFeatures": {
-      "modules": true,
-      "jsx": true
-    }
-  },
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
+    "jsx": true
+  }
   "rules": {
     "react/display-name": 0,
     "react/jsx-curly-spacing": [2, "always"],
