@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/igorprado/react-notification-system"
+    "url": "https://github.com/glebtv/react-notification-system"
   },
   "keywords": [
     "react",
@@ -28,9 +28,9 @@
   "author": "Igor Prado",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/igorprado/react-notification-system/issues"
+    "url": "https://github.com/glebtv/react-notification-system/issues"
   },
-  "homepage": "https://github.com/igorprado/react-notification-system",
+  "homepage": "https://github.com/glebtv/react-notification-system",
   "dependencies": {
     "autoprefixer": "^9.6.1",
     "istanbul-instrumenter-loader": "^3.0.1",
