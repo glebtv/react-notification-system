@@ -11,7 +11,7 @@
 
 _Initially built for [Eterpret](http://dev.eterpret.com) @ [Scalable Path](http://www.scalablepath.com)._
 
-<a href="https://igorprado.github.io/react-notification-system/"><img width="728" src="example/src/images/screenshot.jpg" alt="Screenshot"></a>
+<a href="https://glebtv.github.io/react-notification-system/"><img width="728" src="example/src/images/screenshot.jpg" alt="Screenshot"></a>
 
 ## Installing
 
@@ -26,7 +26,7 @@ npm install rs-react-notification-system
 
 For optimal appearance, this component **must be rendered on a top level HTML element** in your application to avoid position conflicts.
 
-Here is a basic example. For a more advanced usage, please see the [example code](https://github.com/igorprado/react-notification-system/blob/master/example/src/scripts/App.jsx).
+Here is a basic example. For a more advanced usage, please see the [example code](https://github.com/glebtv/react-notification-system/blob/master/example/src/scripts/App.jsx).
 
 
 ```jsx
@@ -168,7 +168,7 @@ var style = {
 
 ```
 
-Refer to [this file](https://github.com/igorprado/react-notification-system/blob/master/src/styles.js) to see what can you override.
+Refer to [this file](https://github.com/glebtv/react-notification-system/blob/master/src/styles.js) to see what can you override.
 
 ### Disabling inline styles
 
@@ -216,7 +216,7 @@ See [#74](https://github.com/igorprado/react-notification-system/issues/74) for 
 Clone this repo by running:
 
 ```
-git clone git@github.com:igorprado/react-notification-system.git
+git clone git@github.com:glebtv/react-notification-system.git
 ```
 
 Enter the project folder and install the dependencies:
