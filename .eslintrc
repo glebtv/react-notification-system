@@ -10,12 +10,17 @@
     "react",
     "import"
   ],
+  "settings": {
+    "react": {
+      "version": "16.9"
+    }
+  },
   "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module",
-    "allowImportExportEverywhere": true
+    "allowImportExportEverywhere": true,
     "jsx": true
-  }
+  },
   "rules": {
     "react/display-name": 0,
     "react/jsx-curly-spacing": [2, "always"],

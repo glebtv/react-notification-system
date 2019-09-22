@@ -4,12 +4,6 @@ var ExtractCssChunks = require("extract-css-chunks-webpack-plugin")
 
 var JS_REGEX = /\.js$|\.jsx$|\.es6$|\.babel$/;
 
-var sassLoaders = [
-  'css-loader',
-  'autoprefixer-loader?browsers=last 2 version',
-  'sass-loader?indentedSyntax=sass&includePaths[]=' + path.resolve(__dirname, './example/src')
-];
-
 module.exports = {
   mode: "production",
   entry: [
@@ -21,7 +15,10 @@ module.exports = {
     publicPath: '../build/'
   },
   plugins: [
-    new ExtractTextPlugin('app.css', { allChunks: true }),
+    new ExtractCssChunks({
+      filename: "app.css",
+      chunkfilename: "app.css",
+    }),
     // set env
     new webpack.DefinePlugin({
       'process.env': {
@@ -31,8 +28,8 @@ module.exports = {
     }),
 
     // optimizations
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    //new webpack.optimize.DedupePlugin(),
+    //new webpack.optimize.OccurenceOrderPlugin(),
     //new webpack.optimize.UglifyJsPlugin({
       //compress: {
         //warnings: false,
@@ -81,10 +78,21 @@ module.exports = {
               modules: false,
             }
           },
-          'style-loader',
           'css-loader',
-          'autoprefixer-loader?browsers=last 2 version',
-          'sass-loader?indentedSyntax=sass&includePaths[]=' + path.resolve(__dirname, 'example/src')
+          {
+            loader: 'postcss-loader',
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sassOptions: {
+                //indentedSyntax: "sass",
+                includePaths: [
+                  path.resolve(__dirname, "example/src"),
+                ]
+              }
+            }
+          }
         ]
       },
       {

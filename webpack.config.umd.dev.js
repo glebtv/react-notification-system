@@ -4,6 +4,7 @@ var webpack = require('webpack');
 var JS_REGEX = /\.js$|\.jsx$|\.es6$|\.babel$/;
 
 module.exports = {
+  mode: "development",
   entry: [
     './src/NotificationSystem.jsx'
   ],
@@ -46,7 +47,7 @@ module.exports = {
           path.resolve(__dirname, 'src'),
           path.resolve(__dirname, 'example/src')
         ],
-        loader: 'babel-loader?presets=airbnb'
+        loader: 'babel-loader?presets[]=airbnb'
       }
     ]
   }

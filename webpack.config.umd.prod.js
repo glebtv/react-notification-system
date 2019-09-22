@@ -4,6 +4,7 @@ var webpack = require('webpack');
 var JS_REGEX = /\.js$|\.jsx$|\.es6$|\.babel$/;
 
 module.exports = {
+  mode: "production",
   entry: [
     './src/NotificationSystem.jsx'
   ],
@@ -42,31 +43,31 @@ module.exports = {
     }),
 
     // optimizations
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-        sequences: true,
-        dead_code: true,
-        drop_debugger: true,
-        comparisons: true,
-        conditionals: true,
-        evaluate: true,
-        booleans: true,
-        loops: true,
-        unused: true,
-        hoist_funs: true,
-        if_return: true,
-        join_vars: true,
-        cascade: true,
-        drop_console: false
-      },
-      output: {
-        comments: false
-      }
-    })
+    //new webpack.optimize.DedupePlugin(),
+    //new webpack.optimize.OccurenceOrderPlugin(),
+    //new webpack.optimize.UglifyJsPlugin({
+      //compress: {
+        //warnings: false,
+        //screw_ie8: true,
+        //sequences: true,
+        //dead_code: true,
+        //drop_debugger: true,
+        //comparisons: true,
+        //conditionals: true,
+        //evaluate: true,
+        //booleans: true,
+        //loops: true,
+        //unused: true,
+        //hoist_funs: true,
+        //if_return: true,
+        //join_vars: true,
+        //cascade: true,
+        //drop_console: false
+      //},
+      //output: {
+        //comments: false
+      //}
+    //})
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -80,7 +81,7 @@ module.exports = {
           path.resolve(__dirname, 'src'),
           path.resolve(__dirname, 'example/src')
         ],
-        loader: 'babel-loader?presets=airbnb'
+        loader: 'babel-loader?presets[]=airbnb'
       }
     ]
   }

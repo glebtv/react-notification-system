@@ -1,10 +1,10 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import merge from 'object-assign';
 
 import Constants from './constants';
-import { Timer }  from './helpers';
+import { Timer } from './helpers';
 
 /* From Modernizr */
 var whichTransitionEvent = function() {
@@ -57,6 +57,7 @@ class NotificationItem extends React.Component {
     this._handleNotificationClick = this._handleNotificationClick.bind(this);
   }
 
+  // eslint-disable-next-line
   UNSAFE_componentWillMount() {
     var getStyles = this.props.getStyles;
     var level = this.props.notification.level;
@@ -221,9 +222,9 @@ class NotificationItem extends React.Component {
   _handleNotificationClick() {
     var dismissible = this.props.notification.dismissible;
     if (
-      dismissible === 'both' ||
-      dismissible === 'click' ||
-      dismissible === true
+      dismissible === 'both'
+      || dismissible === 'click'
+      || dismissible === true
     ) {
       this._dismiss();
     }
@@ -307,9 +308,9 @@ class NotificationItem extends React.Component {
       }
     }
     if (
-      notification.dismissible === 'both' ||
-      notification.dismissible === 'button' ||
-      notification.dismissible === true
+      notification.dismissible === 'both'
+      || notification.dismissible === 'button'
+      || notification.dismissible === true
     ) {
       dismiss = (
         <span

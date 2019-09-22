@@ -2,13 +2,13 @@
   "name": "rs-react-notification-system",
   "version": "0.3.0",
   "description": "A React Notification System fully customized",
-  "main": "dist/NotificationSystem.js",
+  "main": "dist/react-notification-system.min.js",
   "scripts": {
     "test": "karma start --single-run",
     "test-watch": "karma start",
     "prepare-build": "npm run lint && rimraf dist/",
     "prebuild": "npm run prepare-build",
-    "build": "jsx -x jsx ./src ./dist & jsx ./src ./dist && webpack --stats --config webpack.config.umd.prod.js && webpack --stats --config webpack.config.umd.dev.js",
+    "build": "webpack --stats --config webpack.config.umd.prod.js && webpack --stats --config webpack.config.umd.dev.js",
     "lint": "eslint src --ext .jsx,.js",
     "start": "NODE_ENV=development node devServer.js",
     "build:example": "rimraf example/build/ && webpack --stats --config webpack.config.prod.js"
@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/glebtv/react-notification-system",
   "dependencies": {
+    "@primer/css": "^13.0.0",
     "autoprefixer": "^9.6.1",
     "istanbul-instrumenter-loader": "^3.0.1",
     "object-assign": "^4.0.1",
@@ -82,6 +83,7 @@
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9",
     "webpack-dev-middleware": "^3.7.1",
     "webpack-hot-middleware": "^2.25.0"
   }

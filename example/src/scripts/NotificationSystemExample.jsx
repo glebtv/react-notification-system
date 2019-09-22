@@ -21,6 +21,7 @@ class NotificationSystemExample extends React.Component {
     };
     this.notificationSystem = null
     this._magicCount = 0
+    this._allowHTML = this._allowHTML.bind(this)
   }
 
   _allowHTML(allow) {

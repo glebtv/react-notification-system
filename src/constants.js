@@ -6,7 +6,7 @@ const positions = {
   bl: 'bl',
   br: 'br',
   bc: 'bc'
-}
+};
 
 // Levels
 const levels = {
@@ -14,9 +14,9 @@ const levels = {
   error: 'error',
   warning: 'warning',
   info: 'info'
-}
+};
 
-  // Notification defaults
+// Notification defaults
 const notification = {
   title: null,
   message: null,
@@ -25,9 +25,9 @@ const notification = {
   autoDismiss: 5,
   dismissible: 'both',
   action: null
-}
+};
 
-export { positions }
-export { levels }
-export { notification }
-export default { positions, levels, notification }
+export { positions };
+export { levels };
+export { notification };
+export default { positions, levels, notification };

@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react';
+import PropTypes from 'prop-types';
 import merge from 'object-assign';
 
 import Constants from './constants';
@@ -52,6 +52,7 @@ class NotificationSystem extends React.Component {
     this._isMounted = true;
   }
 
+  // eslint-disable-next-line
   UNSAFE_componentWillUnmount() {
     this._isMounted = false;
   }

@@ -19,6 +19,6 @@ const Timer = function(callback, delay) {
   };
 
   this.resume();
-}
+};
 
-export { Timer }
+export { Timer };
