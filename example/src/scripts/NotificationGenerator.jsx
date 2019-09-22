@@ -1,19 +1,33 @@
-var React = require('react');
-var createReactClass = require('create-react-class');
-var PropTypes = require('prop-types');
+import React from "react"
+import PropTypes from "prop-types"
 
 // Styles
-require('styles/generator');
+import 'styles/generator';
 
-module.exports = createReactClass({
+class NotificationGenerator extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      notification: {
+        title: 'Default title',
+        message: 'Default message',
+        level: 'error',
+        position: 'tr',
+        autoDismiss: 5,
+        dismissible: 'both',
+        action: null,
+        actionState: false
+      },
+      allowHTML: false
+    };
 
-  displayName: 'NotificationGenerator',
+    this._changed = this._changed.bind(this)
+    this._notify = this._notify.bind(this)
+    this._removeLastNotification = this._removeLastNotification.bind(this)
+    this._onRemove = this._onRemove.bind(this)
+  }
 
-  _notificationSystem: null,
-
-  _lastNotificationAdded: null,
-
-  _notify: function(event) {
+  _notify(event) {
     var notification = this.state.notification;
     event.preventDefault();
 
@@ -24,17 +38,17 @@ module.exports = createReactClass({
     this._lastNotificationAdded = this._notificationSystem()
       .addNotification(notification);
     this.setState({});
-  },
+  }
 
-  _removeLastNotification: function(event) {
+  _removeLastNotification(event) {
     event.preventDefault();
     if (this._lastNotificationAdded) {
       this._notificationSystem()
         .removeNotification(this._lastNotificationAdded);
     }
-  },
+  }
 
-  _changed: function(event) {
+  _changed(event) {
     var notification = this.state.notification;
     var prop = event.target.name;
     var value = event.target.value;
@@ -52,17 +66,17 @@ module.exports = createReactClass({
     this.setState({
       notification: notification
     });
-  },
+  }
 
-  _onRemove: function(notification) {
+  _onRemove(notification) {
     if (this._lastNotificationAdded && notification.uid === this._lastNotificationAdded.uid) {
       this._lastNotificationAdded = null;
     }
     this.setState({});
     console.log('%cNotification ' + notification.uid + ' was removed.', 'font-weight: bold; color: #eb4d00');
-  },
+  }
 
-  _changedAllowHTML: function() {
+  _changedAllowHTML() {
     var state = this.state;
     var allowHTML = !this.state.allowHTML;
 
@@ -72,13 +86,13 @@ module.exports = createReactClass({
     state.allowHTML = allowHTML;
     this.setState(state);
     this.props.allowHTML(allowHTML);
-  },
+  }
 
-  _callbackForAction: function() {
+  _callbackForAction() {
     console.log('%cYou clicked an action button inside a notification!', 'font-weight: bold; color: #008feb');
-  },
+  }
 
-  _changedAction: function() {
+  _changedAction() {
     var notification = this.state.notification;
     notification.actionState = !notification.actionState;
 
@@ -94,9 +108,9 @@ module.exports = createReactClass({
     this.setState({
       notification: notification
     });
-  },
+  }
 
-  _changedActionLabel: function(event) {
+  _changedActionLabel(event) {
     var notification = this.state.notification;
     var value = event.target.value;
 
@@ -105,33 +119,13 @@ module.exports = createReactClass({
     this.setState({
       notification: notification
     });
-  },
+  }
 
-  getInitialState: function() {
-    return {
-      notification: {
-        title: 'Default title',
-        message: 'Default message',
-        level: 'error',
-        position: 'tr',
-        autoDismiss: 5,
-        dismissible: 'both',
-        action: null,
-        actionState: false
-      },
-      allowHTML: false
-    };
-  },
-  componentDidMount: function() {
-    this._notificationSystem = this.props.notifications;
-  },
+  _notificationSystem() {
+    return this.props.notifications()
+  }
 
-  propTypes: {
-    notifications: PropTypes.func.isRequired,
-    allowHTML: PropTypes.func
-  },
-
-  render: function() {
+  render() {
     var notification = this.state.notification;
     var error = {
       position: 'hide',
@@ -254,4 +248,10 @@ module.exports = createReactClass({
         </div>
     );
   }
-});
+};
+
+NotificationGenerator.propTypes = {
+  notifications: PropTypes.func.isRequired,
+  allowHTML: PropTypes.func
+}
+export default NotificationGenerator

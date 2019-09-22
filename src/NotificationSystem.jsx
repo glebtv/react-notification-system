@@ -1,13 +1,14 @@
-var React = require('react');
-var PropTypes = require('prop-types');
-var merge = require('object-assign');
-var NotificationContainer = require('./NotificationContainer');
-var Constants = require('./constants');
-var Styles = require('./styles');
+import React from "react"
+import PropTypes from "prop-types"
+import merge from 'object-assign';
+
+import Constants from './constants';
+import NotificationContainer from './NotificationContainer';
+import Styles from './styles';
 
 class NotificationSystem extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       notifications: []
     };
@@ -51,7 +52,7 @@ class NotificationSystem extends React.Component {
     this._isMounted = true;
   }
 
-  componentWillUnmount() {
+  UNSAFE_componentWillUnmount() {
     this._isMounted = false;
   }
 
@@ -285,4 +286,4 @@ NotificationSystem.defaultProps = {
   allowHTML: false
 };
 
-module.exports = NotificationSystem;
+export default NotificationSystem;

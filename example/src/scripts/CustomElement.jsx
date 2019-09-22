@@ -1,5 +1,5 @@
-var React = require('react');
-var PropTypes = require('prop-types');
+import React from "react"
+import PropTypes from "prop-types"
 
 function buttonClicked() {
   alert('I\'m a custom button inside a custom element that was clicked');
@@ -18,4 +18,4 @@ CustomElement.propTypes = {
   name: PropTypes.string
 };
 
-module.exports = CustomElement;
+export default CustomElement;

@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ExtractCssChunks = require("extract-css-chunks-webpack-plugin")
 
 var JS_REGEX = /\.js$|\.jsx$|\.es6$|\.babel$/;
 
@@ -57,22 +57,34 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx', '.sass'],
-    modulesDirectories: ['node_modules', 'src']
+    extensions: ['.js', '.jsx', '.sass'],
+    modules: ['node_modules', 'src']
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: JS_REGEX,
         include: [
           path.resolve(__dirname, 'src'),
           path.resolve(__dirname, 'example/src')
         ],
-        loader: 'babel?presets=airbnb'
+        loader: 'babel-loader?presets=airbnb'
       },
       {
         test: /\.sass$/,
-        loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
+        use: [
+          {
+            loader: ExtractCssChunks.loader,
+            options: {
+              hot: false,
+              modules: false,
+            }
+          },
+          'style-loader',
+          'css-loader',
+          'autoprefixer-loader?browsers=last 2 version',
+          'sass-loader?indentedSyntax=sass&includePaths[]=' + path.resolve(__dirname, 'example/src')
+        ]
       },
       {
         test: /\.(jpe?g|png|gif|svg|woff|eot|ttf)$/,

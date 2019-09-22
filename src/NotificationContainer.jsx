@@ -1,15 +1,15 @@
-var React = require('react');
-var PropTypes = require('prop-types');
-var NotificationItem = require('./NotificationItem');
-var Constants = require('./constants');
+import React from "react"
+import PropTypes from "prop-types"
+import NotificationItem from "./NotificationItem"
+import Constants from './constants';
 
 class NotificationContainer extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this._style = {};
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     // Fix position if width is overrided
     this._style = this.props.getStyles.container(this.props.position);
 
@@ -71,4 +71,4 @@ NotificationContainer.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
 };
 
-module.exports = NotificationContainer;
+export default NotificationContainer

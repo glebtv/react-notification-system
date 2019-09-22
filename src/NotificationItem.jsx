@@ -1,9 +1,10 @@
-var React = require('react');
-var PropTypes = require('prop-types');
-var ReactDOM = require('react-dom');
-var Constants = require('./constants');
-var Helpers = require('./helpers');
-var merge = require('object-assign');
+import React from "react"
+import PropTypes from "prop-types"
+import ReactDOM from 'react-dom';
+import merge from 'object-assign';
+
+import Constants from './constants';
+import { Timer }  from './helpers';
 
 /* From Modernizr */
 var whichTransitionEvent = function() {
@@ -30,8 +31,8 @@ function _allowHTML(string) {
 }
 
 class NotificationItem extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this._styles = {};
     this._notificationTimer = null;
     this._height = 0;
@@ -56,7 +57,7 @@ class NotificationItem extends React.Component {
     this._handleNotificationClick = this._handleNotificationClick.bind(this);
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     var getStyles = this.props.getStyles;
     var level = this.props.notification.level;
     var dismissible = this.props.notification.dismissible;
@@ -195,7 +196,7 @@ class NotificationItem extends React.Component {
     }
 
     if (notification.autoDismiss) {
-      this._notificationTimer = new Helpers.Timer(function() {
+      this._notificationTimer = new Timer(function() {
         self._hideNotification();
       }, notification.autoDismiss * 1000);
     }
@@ -374,4 +375,4 @@ NotificationItem.defaultProps = {
   allowHTML: false
 };
 
-module.exports = NotificationItem;
+export default NotificationItem;

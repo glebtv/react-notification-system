@@ -1,5 +1,4 @@
-var CONSTANTS = {
-
+export default {
   // Positions
   positions: {
     tl: 'tl',
@@ -29,6 +28,3 @@ var CONSTANTS = {
     action: null
   }
 };
-
-
-module.exports = CONSTANTS;
