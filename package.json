@@ -1,6 +1,6 @@
 {
-  "name": "react-notification-system",
-  "version": "0.2.17",
+  "name": "rs-react-notification-system",
+  "version": "0.3.0",
   "description": "A React Notification System fully customized",
   "main": "dist/NotificationSystem.js",
   "scripts": {
@@ -39,8 +39,8 @@
     "prop-types": "^15.5.6"
   },
   "peerDependencies": {
-    "react": "0.14.x || ^15.0.0 || ^16.0.0",
-    "react-dom": "0.14.x || ^15.0.0 || ^16.0.0"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

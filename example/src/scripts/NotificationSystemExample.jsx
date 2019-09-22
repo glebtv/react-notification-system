@@ -51,7 +51,7 @@ class NotificationSystemExample extends React.Component {
           <div className="content">
             <h1 className="title">React Notification System</h1>
             <h2 className="subtitle">A complete and totally customizable component for notifications in React.</h2>
-            <h3 className="versions">(For React 15, 0.14 and 0.13)</h3>
+            <h3 className="versions">(For React 16)</h3>
 
             <div className="btn-show-magic-holder">
               <button className="btn btn-outline btn-show-magic" onClick={ this._showTheMagic.bind(this) }>

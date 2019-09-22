@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.3.0 - Sep 22, 2019
+
+* Updated to Webpack 4
+* Updated to React 16
+* Updated everything to use ES6 classes
+* Fixed tests
+* Updated all dependencies
+* Fix deprecations
+
 ## 0.2.17 - Feb 21, 2018
 
 * Dismissible enhancements (thanks to @thepeted)

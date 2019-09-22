@@ -1,6 +1,11 @@
 # React Notification System
 
-[![npm version](https://badge.fury.io/js/react-notification-system.svg)](http://badge.fury.io/js/react-notification-system) [![npm](https://img.shields.io/npm/dm/react-notification-system.svg)](https://www.npmjs.com/package/react-notification-system) [![Dependency Status](https://david-dm.org/igorprado/react-notification-system.svg)](https://david-dm.org/igorprado/react-notification-system) [![devDependency Status](https://david-dm.org/igorprado/react-notification-system/dev-status.svg)](https://david-dm.org/igorprado/react-notification-system#info=devDependencies) [![Build Status](https://travis-ci.org/igorprado/react-notification-system.svg?branch=master)](https://travis-ci.org/igorprado/react-notification-system) [![Coverage Status](https://coveralls.io/repos/igorprado/react-notification-system/badge.svg?branch=master&service=github)](https://coveralls.io/github/igorprado/react-notification-system?branch=master)
+[![npm version](https://badge.fury.io/js/rs-react-notification-system.svg)](http://badge.fury.io/js/rs-react-notification-system)
+[![npm](https://img.shields.io/npm/dm/rs-react-notification-system.svg)](https://www.npmjs.com/package/rs-react-notification-system)
+[![Dependency Status](https://david-dm.org/glebtv/react-notification-system.svg)](https://david-dm.org/glebtv/react-notification-system)
+[![devDependency Status](https://david-dm.org/glebtv/react-notification-system/dev-status.svg)](https://david-dm.org/glebtv/react-notification-system#info=devDependencies)
+[![Build Status](https://travis-ci.org/glebtv/react-notification-system.svg?branch=master)](https://travis-ci.org/glebtv/react-notification-system)
+[![Coverage Status](https://coveralls.io/repos/glebtv/react-notification-system/badge.svg?branch=master&service=github)](https://coveralls.io/github/glebtv/react-notification-system?branch=master)
 
 > A complete and totally customizable component for notifications in React.
 
@@ -13,23 +18,8 @@ _Initially built for [Eterpret](http://dev.eterpret.com) @ [Scalable Path](http:
 This component is available as CommonJS and UMD module. Install via NPM running:
 
 ```
-npm install react-notification-system
+npm install rs-react-notification-system
 ```
-
-### Important
-
-For **React ^0.14.x** or **React ^15.x.x**, use version 0.2.x:
-
-```
-npm install react-notification-system@0.2.x
-```
-
-For **React 0.13.x**, use version 0.1.x:
-
-```
-npm install react-notification-system@0.1.x
-```
-
 
 
 ## Using
@@ -38,43 +28,6 @@ For optimal appearance, this component **must be rendered on a top level HTML el
 
 Here is a basic example. For a more advanced usage, please see the [example code](https://github.com/igorprado/react-notification-system/blob/master/example/src/scripts/App.jsx).
 
-
-Class-based components can also be used as follows
-```js
-var React = require('react');
-var ReactDOM = require('react-dom');
-var NotificationSystem = require('react-notification-system');
-
-var MyComponent = React.createClass({
-  _notificationSystem: null,
-
-  _addNotification: function(event) {
-    event.preventDefault();
-    this._notificationSystem.addNotification({
-      message: 'Notification message',
-      level: 'success'
-    });
-  },
-
-  componentDidMount: function() {
-    this._notificationSystem = this.refs.notificationSystem;
-  },
-
-  render: function() {
-    return (
-      <div>
-        <button onClick={this._addNotification}>Add notification</button>
-        <NotificationSystem ref="notificationSystem" />
-      </div>
-      );
-  }
-});
-
-ReactDOM.render(
-  React.createElement(MyComponent),
-  document.getElementById('app')
-);
-```
 
 ```jsx
 import React from 'react';
